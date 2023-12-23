@@ -78,7 +78,6 @@ func (h *WsHandler) JoinRoom(ctx *gin.Context) {
 	// register client with hub
 	h.hub.Register <- client
 
-	go client.ReadMessage(h.hub)
-
 	go client.SendMessage(h.hub)
+	go client.ReadMessage(h.hub)
 }

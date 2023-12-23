@@ -59,7 +59,7 @@ func (client *Client) ReadMessage(hub *Hub) {
 			Username: client.Username,
 		}
 
-		client.MessageChannel <- message
+		hub.Broadcast <- message
 	}
 }
 
